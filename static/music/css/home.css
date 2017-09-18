@@ -1,0 +1,32 @@
+#music-container
+{
+	display: flex;
+	height: 100%;
+}
+
+.nav-bar-container
+{
+	width: 25%;
+	padding: 3%;
+}
+
+.nav-bar-container .nav-bar
+{
+	margin-top: 50px;
+}
+
+.nav-bar-container .nav-bar-div
+{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-top: -1px;
+
+}
+
+.main-container
+{
+	width: 75%;
+	padding: 15px;
+}

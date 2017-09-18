@@ -1,0 +1,40 @@
+{% load staticfiles %}
+{% load static %}
+
+<link rel='stylesheet' href="{% static 'music/css/manage.css' %}">
+
+<div id='manage-container' ng-controller='manageController'>
+	<div class='manage-sect'>
+		<div class='manage-title'><b>My Playlist</b></div>
+		<div class='playlist-container'>
+			<div class='playlist-square' ng-repeat='p in playlist' ng-click='getSongs(p[0], p[2]);'>
+				{$ p[2] $}
+			</div>
+		</div>
+	</div>
+
+	<div class='manage-sect' ng-show='selectedPlaylist'>
+		<div class='manage-title'>Songs in <i><b>{$ selectedPlaylist $}</b></i></div>
+		<table id='playlist-table'>
+			<col width="33%">
+			<col width="33%">
+			<col width="33%">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Album</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr ng-repeat='d in playlistResult'>
+					<td>{$ d[1] $}</td>
+					<td>{$ d[2] $}</td>
+					<td>{$ d[3] $}</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+</div>

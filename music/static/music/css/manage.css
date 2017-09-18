@@ -1,0 +1,33 @@
+.playlist-square
+{
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	margin-right: 15px;
+	text-align: center;
+	line-height: 100px;
+	border: 1px solid black;
+}
+
+.playlist-container
+{
+    white-space: nowrap;
+    width: 85%;
+    overflow-x: auto;
+    margin: auto;
+}
+
+#playlist-table
+{
+	width: 100%;
+}
+
+.manage-sect
+{
+	margin-bottom: 30px;
+}
+
+.manage-title
+{
+	margin-bottom: 10px;
+}

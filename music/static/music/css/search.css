@@ -1,0 +1,21 @@
+#search-container input
+{
+	width: 90%;
+	padding: 5px;
+}
+
+#search-table
+{
+	width: 100%;
+}
+
+#search-input
+{
+	margin-bottom: 50px;
+	margin-top: 25px;
+}
+
+#search-table th:hover
+{
+	cursor: pointer;
+}

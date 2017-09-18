@@ -1,0 +1,41 @@
+Jeffrey Ma
+
+Contact:
+If you have any problems compiling or installing the program, please feel free to contact me.
+
+These are the main files for this assignment
+music/static/js/home.js						Angularjs that controls the tab, search and display
+music/views.py								Python backend to get data
+standard_functions/database_function.py 	Python function page for database connection
+sqlite										Small portable database for this assignment
+
+Assumptions:
+1. Users can have many playlists. One playlist can have multiple songs.
+2. Only sort on the search page.
+
+Objective:
+1. Displays song and playlist
+2. Sort song title, album name and artist
+3. Search by song title, album and artist
+
+Instructions:
+	We will need python for this. Please install python version Python 2.7.10. I believe this will work with other version.
+		Install python:
+			Linux: apt-get install python2.7
+			Mac: https://www.python.org/downloads/
+	
+		Install pip:
+			Mac: sudo easy_install pip
+
+	We will also need django.
+		pip install Django
+
+Compile:
+	To start the django on localhost (must in the folder with manage.py):
+		python manage.py runserver
+
+Database Structure:
+	CREATE TABLE song(id INTEGER PRIMARY KEY, name varchar(128), artist varchar(128), album varchar(128), duration integer);
+	CREATE TABLE playlist(id INTEGER PRIMARY KEY, username varchar(255), name varchar(255))
+	CREATE TABLE playlist_song(FOREIGN KEY(playlist_id) REFERENCES playlist(id), FOREIGN KEY(song_id) REFERENCES song(id))
+

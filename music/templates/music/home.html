@@ -1,0 +1,40 @@
+{% load staticfiles %}
+{% load static %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="{% static 'music/js/home.js' %}"></script>
+<link rel='stylesheet' href="{% static 'music/css/home.css' %}">
+
+<script>
+	var playlist = {{ playlist | safe }};
+</script>
+
+<div id='music-container'>
+	<div class='nav-bar-container' ng-controller='navController'>
+		<div class='nav-bar'>
+			<div class='nav-bar-div' ng-click='updateTab("home")'>Home</div>
+			<div class='nav-bar-div' ng-click='updateTab("search")'>Search</div>
+			<div class='nav-bar-div' ng-click='updateTab("manage")'>Manage</div>
+		</div>
+	</div>
+
+	<div class='main-container' ng-controller='musicController'>
+		<div id='html-container'>
+			<div ng-show='selectedTab == "home"'>
+				Welcome {{ request.user.username }}.
+			</div>
+			<div ng-show='selectedTab == "search"'>
+				{% include "music/search.html" %} 
+			</div>
+			<div ng-show='selectedTab == "manage"'>
+				{% include "music/manage.html" %} 
+			</div>
+		</div>
+
+	</div>
+
+</div>
