@@ -35,3 +35,13 @@
 	width: 75%;
 	padding: 15px;
 }
+
+#logout-anchor
+{
+	color: black;
+}
+
+#logout-anchor:hover
+{
+	text-decoration: none;
+}
