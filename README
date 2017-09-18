@@ -34,6 +34,10 @@ Compile:
 	To start the django on localhost (must in the folder with manage.py):
 		python manage.py runserver
 
+Login:
+	username:admin
+	password:password
+
 Database Structure:
 	CREATE TABLE song(id INTEGER PRIMARY KEY, name varchar(128), artist varchar(128), album varchar(128), duration integer);
 	CREATE TABLE playlist(id INTEGER PRIMARY KEY, username varchar(255), name varchar(255))
