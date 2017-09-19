@@ -45,3 +45,8 @@
 {
 	text-decoration: none;
 }
+
+td, th
+{
+	padding: 10px;
+}
