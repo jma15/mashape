@@ -53,11 +53,13 @@ app.controller('searchController', function($scope, $http){
 	$scope.searchMusic = function()
 	{
 		// to prevent empty search
-		// if($scope.searchText == '')
-		// {
-		// 	$scope.searchResult = ''
-		// 	return;
-		// }
+		if($scope.searchText == '')
+		{
+			$scope.searchResultsText = "Display all results:"
+			return;
+		}
+
+		$scope.searchResultsText = "Searching for '" + $scope.searchText + "'"
 
 		$http({
 			method: 'POST',
