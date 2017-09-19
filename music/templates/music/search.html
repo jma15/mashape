@@ -7,19 +7,22 @@
 		placeholder="Search for music, artist, album" ng-model-options="{debounce: 500}" ng-change="searchMusic()">
 
 	<table id='search-table' ng-show='searchResult.length > 0'>
-		<col width="33%">
-		<col width="33%">
-		<col width="33%">
+		<col width="30%">
+		<col width="30%">
+		<col width="20%">
+		<col width="20%">
 		<tr>
 			<th ng-click='changeOrder("titleSort")'>Title</th>
 			<th ng-click='changeOrder("authorSort")'>Author</th>
 			<th ng-click='changeOrder("albumSort")'>Album</th>
+			<th ng-click='changeOrder("durationSort")'>Duration</th>
 		</tr>
 
 		<tr ng-repeat='d in searchResult'>
 			<td>{$ d[1] $}</td>
 			<td>{$ d[2] $}</td>
 			<td>{$ d[3] $}</td>
+			<td>{$ d[4] | convertSec $}</td>
 		</tr>
 
 	</table>

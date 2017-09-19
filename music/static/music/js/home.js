@@ -2,8 +2,22 @@ angular.element(document).ready(function(){
 	angular.bootstrap(document.getElementById("music-container"), ['musicApp']);
 });
 
+// shareable module
+var appFilter = angular.module("shareApp", []);
+
+// custom filter to convert sec to string format with minute
+appFilter.filter("convertSec", function () {
+    return function (sec) {
+    	minute = Math.floor(sec / 60);
+    	remaining = sec % 60;
+    	// cast to two format
+    	if(remaining < 10) remaining = "0" + remaining;
+    	return(minute + " min " + remaining + " sec")
+    }
+});
+
 // Start the module
-var app = angular.module('musicApp', []).config(function($interpolateProvider){
+var app = angular.module('musicApp', ["shareApp"]).config(function($interpolateProvider){
 	$interpolateProvider.startSymbol('{$');
 	$interpolateProvider.endSymbol('$}');
 });
@@ -34,6 +48,7 @@ app.controller('searchController', function($scope, $http){
 	$scope.titleSort = -1;
 	$scope.authorSort = -2;
 	$scope.albumSort = -3;
+	$scope.durationSort = -4;
 
 	$scope.searchMusic = function()
 	{
@@ -67,7 +82,7 @@ app.controller('searchController', function($scope, $http){
 		// change to increment
 		if(value > 0){
 			$scope.searchResult.sort(function(a, b) { 
-	    		return a[value].toUpperCase() > b[value].toUpperCase() ? 1 : -1;
+	    		return String(a[value]).toUpperCase() > String(b[value]).toUpperCase() ? 1 : -1;
 			});
 		}
 		// decrement the table
@@ -75,7 +90,7 @@ app.controller('searchController', function($scope, $http){
 			// change back to positive index
 			temp = value * -1;
 			$scope.searchResult.sort(function(a, b) { 
-	    		return a[temp].toUpperCase() < b[temp].toUpperCase() ? 1 : -1;
+	    		return String(a[temp]).toUpperCase() < String(b[temp]).toUpperCase() ? 1 : -1;
 			});			
 		}
 
