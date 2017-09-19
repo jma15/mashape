@@ -16,10 +16,10 @@
 			<col width="20%">
 			<col width="20%">
 			<tr>
-				<th ng-click='changeOrder("titleSort")'>Title</th>
-				<th ng-click='changeOrder("authorSort")'>Author</th>
-				<th ng-click='changeOrder("albumSort")'>Album</th>
-				<th ng-click='changeOrder("durationSort")'>Duration</th>
+				<th ng-click='changeOrder("titleSort")'>Title <span ng-class=' titleSort < 0? "glyphicon glyphicon-triangle-top": "glyphicon glyphicon-triangle-bottom" '></span></th>
+				<th ng-click='changeOrder("authorSort")'>Author <span ng-class=' authorSort < 0? "glyphicon glyphicon-triangle-top": "glyphicon glyphicon-triangle-bottom" '></span></th>
+				<th ng-click='changeOrder("albumSort")'>Album <span ng-class=' albumSort < 0? "glyphicon glyphicon-triangle-top": "glyphicon glyphicon-triangle-bottom" '></span></th>
+				<th ng-click='changeOrder("durationSort")'>Duration <span ng-class=' durationSort < 0? "glyphicon glyphicon-triangle-top": "glyphicon glyphicon-triangle-bottom" '></span></th>
 			</tr>
 
 			<tr ng-repeat='d in searchResult'>
